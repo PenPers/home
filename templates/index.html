@@ -5,127 +5,139 @@
 <title>PenPers</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-/* 🔹 Reset و پایه */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body, html { height: 100%; width: 100%; font-family: 'Playfair Display', serif; overflow-x: hidden; }
+/* 🔹 Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body, html { height:100%; width:100%; font-family: 'Playfair Display', serif; overflow-x:hidden; }
 
-/* 🔹 پس‌زمینه انیمیشنی گرادیانت */
+/* 🔹 پس‌زمینه انیمیشنی */
 body {
-  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
-  background-size: 400% 400%;
+  background: linear-gradient(-45deg,#ff9a9e,#fad0c4,#a18cd1,#fbc2eb);
+  background-size:400% 400%;
   animation: gradientBG 15s ease infinite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  flex-direction:column;
+  padding: 20px;
 }
-
-/* 🔹 انیمیشن پس‌زمینه */
 @keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 /* 🔹 عنوان PenPers */
 h1 {
-  font-size: 90px;
-  color: #FFD700;
-  text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
-  margin-bottom: 50px;
+  font-size: 80px;
+  color: gold;
+  text-shadow:2px 2px 15px rgba(0,0,0,0.6);
+  margin-bottom:20px;
   animation: fadeInTitle 2s ease forwards;
 }
-@keyframes fadeInTitle {
-  0% { opacity: 0; transform: translateY(-50px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeInTitle {0%{opacity:0; transform:translateY(-50px);} 100%{opacity:1; transform:translateY(0);}}
 
-/* 🔹 باکس خوش‌آمدید */
+/* 🔹 خوش آمدید باکس */
 .welcome-box {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  background: linear-gradient(135deg,#6a11cb,#2575fc);
   padding: 40px 60px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 28px;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  margin-bottom: 40px;
+  border-radius:20px;
+  color:#fff;
+  font-size:28px;
+  font-weight:bold;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  margin-bottom:40px;
   animation: fadeInBox 2s 0.5s ease forwards;
-  opacity: 0;
+  opacity:0;
 }
-@keyframes fadeInBox {
-  to { opacity: 1; }
-}
+@keyframes fadeInBox { to { opacity:1; } }
 
 /* 🔹 فرم تماس */
 .contact-box {
-  background: rgba(255, 69, 0, 0.9);
-  padding: 30px 40px;
-  border-radius: 15px;
-  width: 400px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  color: white;
+  background: rgba(255,69,0,0.9);
+  padding:30px 40px;
+  border-radius:15px;
+  width:400px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+  color:white;
   animation: fadeInForm 2s 1s ease forwards;
-  opacity: 0;
+  opacity:0;
+  margin-bottom:30px;
 }
-
-.contact-box label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-}
+.contact-box label { font-weight:bold; display:block; margin-bottom:5px; }
 .contact-box input, .contact-box textarea {
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
+  width:100%; padding:12px; margin-bottom:15px;
+  border-radius:10px; border:none; font-size:16px;
 }
 .send-btn {
-  background: #FFD700;
-  color: #1E1E1E;
-  font-weight: bold;
-  padding: 12px 20px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
+  background:#FFD700; color:#1E1E1E; font-weight:bold;
+  padding:12px 20px; border-radius:10px; border:none; cursor:pointer; transition:0.3s;
 }
-.send-btn:hover {
-  transform: scale(1.05);
-  background: #FFA500;
-}
+.send-btn:hover { transform:scale(1.05); background:#FFA500; }
+@keyframes fadeInForm { to { opacity:1; } }
 
-@keyframes fadeInForm {
-  to { opacity: 1; }
+/* 🔹 باکس نظرات */
+.comment-box {
+  position:fixed;
+  top:150px; right:20px;
+  width:350px;
+  background:rgba(255,255,255,0.95);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.4);
+  animation: slideIn 1s ease forwards;
 }
+@keyframes slideIn { 0%{transform:translateX(400px); opacity:0;} 100%{transform:translateX(0); opacity:1;} }
 
-/* 🔹 واکنش‌گرا */
-@media(max-width: 800px){
-  .contact-box, .welcome-box { width: 90%; }
-  h1 { font-size: 60px; }
+.comment-box h3 { text-align:center; margin-bottom:15px; color:#1E3A8A; }
+
+.comment-box input, .comment-box textarea {
+  width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1px solid #ccc;
 }
+.comment-box button {
+  width:100%; padding:10px; background:#1E3A8A; color:white; border:none; border-radius:8px; cursor:pointer; font-weight:bold;
+  transition:0.3s;
+}
+.comment-box button:hover { background:#2575fc; }
+
+/* نمایش نظرات */
+.comment-list {
+  max-height:200px;
+  overflow-y:auto;
+  margin-top:15px;
+  border-top:1px solid #ccc;
+  padding-top:10px;
+}
+.comment-list p { background:rgba(30,58,138,0.1); padding:8px; border-radius:8px; margin-bottom:8px; font-size:14px; }
+
 </style>
 </head>
 <body>
-  <h1>PenPers</h1>
+<h1>PenPers</h1>
 
-  <div class="welcome-box">
-    خوش آمدید به دنیای PenPers!<br>
-    اینجا شروع یک تجربه فوق‌العاده است.
-  </div>
+<div class="welcome-box">
+  خوش آمدید به دنیای PenPers!<br>اینجا شروع یک تجربه فوق‌العاده است.
+</div>
 
-  <div class="contact-box">
-    <label>پیام به ایمیل: penpers</label>
-    <p>ایمیل: mohamadmahdi13895@gmail.com</p>
-    <input type="text" id="name" placeholder="نام شما">
-    <textarea id="message" placeholder="پیام شما" rows="4"></textarea>
-    <button class="send-btn" onclick="sendEmail()">ارسال پیام</button>
-  </div>
+<div class="contact-box">
+  <label>پیام به ایمیل: penpers</label>
+  <p>ایمیل: mohamadmahdi13895@gmail.com</p>
+  <input type="text" id="name" placeholder="نام شما">
+  <textarea id="message" placeholder="پیام شما" rows="4"></textarea>
+  <button class="send-btn" onclick="sendEmail()">ارسال پیام</button>
+</div>
+
+<!-- 🔹 باکس نظرات -->
+<div class="comment-box">
+  <h3>نظر خود را بنویسید</h3>
+  <input type="text" id="cname" placeholder="نام شما">
+  <textarea id="cmessage" rows="3" placeholder="نظر شما"></textarea>
+  <button onclick="addComment()">ارسال نظر</button>
+  <div class="comment-list" id="commentList"></div>
+</div>
 
 <script>
+/* ارسال پیام ایمیل */
 function sendEmail(){
   const name = document.getElementById("name").value;
   const message = document.getElementById("message").value;
@@ -133,6 +145,33 @@ function sendEmail(){
   const body = encodeURIComponent("نام: " + name + "\n\nپیام: " + message);
   window.location.href = "mailto:mohamadmahdi13895@gmail.com?subject=" + subject + "&body=" + body;
 }
+
+/* کامنت‌ها با Local Storage */
+function addComment(){
+  const cname = document.getElementById("cname").value;
+  const cmessage = document.getElementById("cmessage").value;
+  if(cname && cmessage){
+    let comments = JSON.parse(localStorage.getItem("comments") || "[]");
+    comments.push({name:cname, msg:cmessage});
+    localStorage.setItem("comments", JSON.stringify(comments));
+    document.getElementById("cname").value="";
+    document.getElementById("cmessage").value="";
+    renderComments();
+  }
+}
+function renderComments(){
+  const list = document.getElementById("commentList");
+  let comments = JSON.parse(localStorage.getItem("comments") || "[]");
+  list.innerHTML = "";
+  comments.forEach(c=>{
+    const p = document.createElement("p");
+    p.textContent = c.name + ": " + c.msg;
+    list.appendChild(p);
+  });
+}
+renderComments();
 </script>
 </body>
 </html>
+
+
