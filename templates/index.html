@@ -5,11 +5,11 @@
 <title>PenPers</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
-/* Reset */
+/* 🔹 Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
 body, html { height:100%; width:100%; font-family: 'Montserrat', sans-serif; overflow-x:hidden; }
 
-/* پس‌زمینه متحرک */
+/* 🔹 پس‌زمینه متحرک */
 body {
   background: linear-gradient(-45deg,#ff9a9e,#fad0c4,#a18cd1,#fbc2eb);
   background-size:400% 400%;
@@ -25,7 +25,7 @@ body {
   100%{background-position:0% 50%;}
 }
 
-/* عنوان PenPers */
+/* 🔹 عنوان PenPers */
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: 90px;
@@ -36,7 +36,7 @@ h1 {
 }
 @keyframes fadeInTitle {0%{opacity:0; transform:translateY(-50px);} 100%{opacity:1; transform:translateY(0);}}
 
-/* باکس خوش آمدید */
+/* 🔹 باکس خوش آمدید */
 .welcome-box {
   background: linear-gradient(135deg,#6a11cb,#2575fc);
   padding:50px 70px;
@@ -52,7 +52,7 @@ h1 {
 }
 @keyframes fadeInBox { to { opacity:1; } }
 
-/* فرم تماس */
+/* 🔹 فرم تماس */
 .contact-box {
   background: rgba(255,69,0,0.9);
   padding:35px 45px;
@@ -76,7 +76,7 @@ h1 {
 .send-btn:hover { transform:scale(1.05); background:#FFA500; }
 @keyframes fadeInForm { to { opacity:1; } }
 
-/* باکس نظرات */
+/* 🔹 باکس نظرات */
 .comment-box {
   position:fixed;
   top:180px; right:20px;
@@ -109,17 +109,15 @@ h1 {
 }
 .comment-list p { background:rgba(30,58,138,0.1); padding:8px; border-radius:8px; margin-bottom:8px; font-size:14px; }
 
-/* عروسک‌ها */
+/* 🔹 عروسک متحرک */
 .doll {
   width:120px;
   position:absolute;
   bottom:50px;
+  left:50px;
   cursor:pointer;
   transition: all 0.5s ease;
 }
-#doll1 { left:50px; }
-#doll2 { left:220px; }
-#doll3 { left:390px; }
 .doll:hover { transform: scale(1.2) rotate(10deg); }
 </style>
 </head>
@@ -138,7 +136,7 @@ h1 {
   <button class="send-btn" onclick="sendEmail()">ارسال پیام</button>
 </div>
 
-<!-- باکس نظرات -->
+<!-- 🔹 باکس نظرات -->
 <div class="comment-box">
   <h3>نظر خود را بنویسید</h3>
   <input type="text" id="cname" placeholder="نام شما">
@@ -147,10 +145,8 @@ h1 {
   <div class="comment-list" id="commentList"></div>
 </div>
 
-<!-- عروسک‌ها -->
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Robot_icon.svg/240px-Robot_icon.svg.png" class="doll" id="doll1">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Emoji_u1f60a.svg/120px-Emoji_u1f60a.svg.png" class="doll" id="doll2">
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Emoji_u1f601.svg/120px-Emoji_u1f601.svg.png" class="doll" id="doll3">
+<!-- 🔹 عروسک متحرک -->
+<img src="https://i.ibb.co/3mGJY2B/doll.png" class="doll" id="doll1">
 
 <script>
 /* ارسال پیام ایمیل */
@@ -187,10 +183,13 @@ function renderComments(){
 }
 renderComments();
 
-/* عروسک‌ها کلیک */
-const dolls = [
-  {id:'doll1', sound:'https://www.soundjay.com/buttons/sounds/button-16.mp3'},
-  {id:'doll2', sound:'https://www.soundjay.com/buttons/sounds/button-3.mp3'},
-  {id:'doll3', sound:'https://www.soundjay.com/buttons/sounds/button-09.mp3'}
-];
-dolls
+/* عروسک کلیک */
+const doll1 = document.getElementById("doll1");
+doll1.addEventListener("click", ()=>{
+  doll1.style.transform = "rotate(360deg) scale(1.3)";
+  setTimeout(()=>{doll1.style.transform="rotate(0deg) scale(1)";},500);
+});
+</script>
+</body>
+</html>
+
