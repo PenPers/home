@@ -1,104 +1,138 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <title>PenPers</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Georgia', serif; /* فونت کلاسیک و لاکچری */
-            background-color: #87CEFA; /* آبی آسمونی */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
+<meta charset="UTF-8">
+<title>PenPers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+/* 🔹 Reset و پایه */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body, html { height: 100%; width: 100%; font-family: 'Playfair Display', serif; overflow-x: hidden; }
 
-        h1 {
-            font-size: 60px;
-            font-weight: bold;
-            margin-bottom: 40px;
-            color: #000080; /* رنگ کمی تیره‌تر برای کلاسیک بودن */
-        }
+/* 🔹 پس‌زمینه انیمیشنی گرادیانت */
+body {
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-        .welcome-box {
-            background-color: #1E3A8A; /* آبی تیره */
-            color: white;
-            padding: 30px 40px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            width: 60%;
-            text-align: center;
-            font-size: 24px;
-        }
+/* 🔹 انیمیشن پس‌زمینه */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-        .contact-box {
-            background-color: #FF0000; /* قرمز */
-            padding: 20px;
-            border-radius: 10px;
-            width: 60%;
-            color: white;
-            font-size: 18px;
-        }
+/* 🔹 عنوان PenPers */
+h1 {
+  font-size: 90px;
+  color: #FFD700;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+  margin-bottom: 50px;
+  animation: fadeInTitle 2s ease forwards;
+}
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 
-        .contact-box input, .contact-box textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-        }
+/* 🔹 باکس خوش‌آمدید */
+.welcome-box {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 40px 60px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin-bottom: 40px;
+  animation: fadeInBox 2s 0.5s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeInBox {
+  to { opacity: 1; }
+}
 
-        .contact-box label {
-            font-weight: bold;
-        }
+/* 🔹 فرم تماس */
+.contact-box {
+  background: rgba(255, 69, 0, 0.9);
+  padding: 30px 40px;
+  border-radius: 15px;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  color: white;
+  animation: fadeInForm 2s 1s ease forwards;
+  opacity: 0;
+}
 
-        .send-btn {
-            margin-top: 10px;
-            padding: 10px 20px;
-            background-color: #000080;
-            color: white;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.contact-box label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+.contact-box input, .contact-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+.send-btn {
+  background: #FFD700;
+  color: #1E1E1E;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.send-btn:hover {
+  transform: scale(1.05);
+  background: #FFA500;
+}
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 70%;
-        }
-    </style>
+@keyframes fadeInForm {
+  to { opacity: 1; }
+}
+
+/* 🔹 واکنش‌گرا */
+@media(max-width: 800px){
+  .contact-box, .welcome-box { width: 90%; }
+  h1 { font-size: 60px; }
+}
+</style>
 </head>
 <body>
-    <h1>PenPers</h1>
+  <h1>PenPers</h1>
 
-    <div class="container">
-        <div class="welcome-box">
-            خوش آمدید
-        </div>
+  <div class="welcome-box">
+    خوش آمدید به دنیای PenPers!<br>
+    اینجا شروع یک تجربه فوق‌العاده است.
+  </div>
 
-        <div class="contact-box">
-            <label>پیام به ایمیل: penpers</label>
-            <p>ایمیل: mohamadmahdi13895@gmail.com</p>
-            <input type="text" id="name" placeholder="نام شما">
-            <textarea id="message" placeholder="پیام شما" rows="4"></textarea>
-            <button class="send-btn" onclick="sendEmail()">ارسال پیام</button>
-        </div>
-    </div>
+  <div class="contact-box">
+    <label>پیام به ایمیل: penpers</label>
+    <p>ایمیل: mohamadmahdi13895@gmail.com</p>
+    <input type="text" id="name" placeholder="نام شما">
+    <textarea id="message" placeholder="پیام شما" rows="4"></textarea>
+    <button class="send-btn" onclick="sendEmail()">ارسال پیام</button>
+  </div>
 
-    <script>
-        function sendEmail() {
-            const name = document.getElementById("name").value;
-            const message = document.getElementById("message").value;
-            const subject = encodeURIComponent("پیام از سایت PenPers");
-            const body = encodeURIComponent("نام: " + name + "\n\nپیام: " + message);
-            window.location.href = "mailto:mohamadmahdi13895@gmail.com?subject=" + subject + "&body=" + body;
-        }
-    </script>
+<script>
+function sendEmail(){
+  const name = document.getElementById("name").value;
+  const message = document.getElementById("message").value;
+  const subject = encodeURIComponent("پیام از سایت PenPers");
+  const body = encodeURIComponent("نام: " + name + "\n\nپیام: " + message);
+  window.location.href = "mailto:mohamadmahdi13895@gmail.com?subject=" + subject + "&body=" + body;
+}
+</script>
 </body>
 </html>
